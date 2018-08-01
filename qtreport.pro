@@ -25,13 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    salewindow.cpp \
-    datawindow.cpp
+    datadialog.cpp \
+    saledialog.cpp
 
 HEADERS  += mainwindow.h \
-    salewindow.h \
-    datawindow.h
+    datadialog.h \
+    saledialog.h
 
 FORMS    += mainwindow.ui \
-    salewindow.ui \
-    datawindow.ui
+    datadialog.ui \
+    saledialog.ui
