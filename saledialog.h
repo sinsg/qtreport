@@ -15,6 +15,14 @@ public:
     explicit SaleDialog(QWidget *parent = 0);
     ~SaleDialog();
 
+    //表格事件过滤器
+    bool eventFilter( QObject *object, QEvent *event );
+
+    //表格菜单功能
+    void show_menu();
+
+
+
 private:
     Ui::SaleDialog *ui;
 };
