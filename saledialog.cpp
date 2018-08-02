@@ -5,6 +5,7 @@
 #include "QDebug"
 #include "QContextMenuEvent"
 #include "QMenu"
+#include "QComboBox"
 
 SaleDialog::SaleDialog(QWidget *parent) :
     QDialog(parent),
@@ -26,6 +27,14 @@ SaleDialog::SaleDialog(QWidget *parent) :
 
 
 
+//tablewidget 中插入widget
+//    QComboBox *boBox=new QComboBox;
+//    boBox->setEditable(true);
+//    ui->tableWidget->setCellWidget(0,0,boBox);
+//    QTableWidget *tw=new QTableWidget;
+//    tw->setColumnCount(3);
+//    tw->setRowCount(3);
+//    ui->tableWidget->setCellWidget(1,1,tw);
 
 
 
@@ -48,13 +57,13 @@ bool SaleDialog::eventFilter(QObject *object, QEvent *event)
 
 
             //类型转换
-            QContextMenuEvent *cme=static_cast<QContextMenuEvent *>(event);
+           // QContextMenuEvent *cme=static_cast<QContextMenuEvent *>(event);
 
            //获取对象 并转换类
             //QTableWidget *tw=static_cast<QTableWidget *>(object);
-             qDebug()<<ui->tableWidget->currentIndex().row();
+            //qDebug()<<ui->tableWidget->currentIndex().row();
 
-            qDebug()<<"右键 "<<event<<cme->x()<<cme->y();
+            //qDebug()<<"右键 "<<event<<cme->x()<<cme->y();
             this->show_menu();
 
         }
@@ -72,12 +81,31 @@ void SaleDialog::show_menu()
     QMenu *menu = new QMenu(ui->tableWidget);
     QAction *pnew = new QAction("增加行",ui->tableWidget);
     QAction *pnew1 = new QAction("删除行",ui->tableWidget);
-    connect (pnew,SIGNAL(triggered()),this,SLOT(clickaddrow()));
+
+
+
+   connect (pnew,SIGNAL(triggered()),this,SLOT(clickaddrow()));
+
+
+
     connect (pnew1,SIGNAL(triggered()),this,SLOT(clickrmrow()));
+
+
     menu->addAction(pnew);
     menu->addAction(pnew1);
     menu->move (cursor ().pos ());
     menu->show ();
+}
+
+void SaleDialog::clickaddrow()
+{
+    qDebug()<<"增加";
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+}
+
+void SaleDialog::clickrmrow()
+{
+    ui->tableWidget->removeRow(ui->tableWidget->currentRow());
 }
 
 

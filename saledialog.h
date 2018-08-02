@@ -23,6 +23,13 @@ public:
 
 
 
+
+public slots:
+    //表格菜单 的两个slot 函数
+    void clickaddrow();
+    void clickrmrow();
+
+
 private:
     Ui::SaleDialog *ui;
 };

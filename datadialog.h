@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::DataDialog *ui;
+
 };
 
 #endif // DATADIALOG_H
