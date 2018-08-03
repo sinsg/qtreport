@@ -16,7 +16,7 @@ public:
 
 private:
     QSqlDatabase *database;
-    QSqlQuery query;
+    QSqlQuery *query;
 };
 
 #endif // DBMODEL_H
