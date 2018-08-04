@@ -14,6 +14,10 @@ public:
     bool creater();
     bool connect();
 
+    //获取客户当前欠款金额
+    int getSum(QString customer_name,int num);
+
+
 private:
     QSqlDatabase *database;
     QSqlQuery *query;
